@@ -53,10 +53,13 @@ function addVideo() {
     const videoUpload = document.getElementById('videoUpload');
     const file = videoUpload.files[0];
     if (file) {
-        const videoURL = URL.createObjectURL(file);
-        videos.push({ src: videoURL });
-        saveVideos();
-        renderVideos();
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            videos.push({ src: e.target.result });
+            saveVideos();
+            renderVideos();
+        };
+        reader.readAsDataURL(file);
     }
 }
 
