@@ -1,8 +1,20 @@
 let videos = [];
 
 document.addEventListener("DOMContentLoaded", () => {
+    loadVideos();
     renderVideos();
 });
+
+function loadVideos() {
+    const savedVideos = localStorage.getItem('videos');
+    if (savedVideos) {
+        videos = JSON.parse(savedVideos);
+    }
+}
+
+function saveVideos() {
+    localStorage.setItem('videos', JSON.stringify(videos));
+}
 
 function renderVideos() {
     const videoGrid = document.getElementById('video-grid');
@@ -43,11 +55,13 @@ function addVideo() {
     if (file) {
         const videoURL = URL.createObjectURL(file);
         videos.push({ src: videoURL });
+        saveVideos();
         renderVideos();
     }
 }
 
 function removeVideo(index) {
     videos.splice(index, 1);
+    saveVideos();
     renderVideos();
 }
