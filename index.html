@@ -3,20 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galerie Vidéo</title>
+    <title>Bouton de son</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="imot.png" type="image/png">
 </head>
 <body>
 
     <div class="container">
-        <h1>Galerie Vidéo</h1>
-        <div class="video-grid" id="video-grid">
-            <!-- Les vidéos seront ajoutées dynamiquement ici -->
-        </div>
-        <input type="file" id="videoUpload" accept="video/*" onchange="addVideo()" hidden>
-        <button class="add-video-btn" onclick="document.getElementById('videoUpload').click()">Ajouter une Vidéo</button>
+        <button id="soundButton">Appuyez pour jouer un son</button>
     </div>
+
+    <audio id="soundEffect" src="./pet.mp3"></audio>
 
     <script src="script.js"></script>
 </body>
