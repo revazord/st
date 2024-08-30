@@ -3,7 +3,7 @@ const keypressContainer = document.querySelector(".keypress");
 
 const playsong = (key) => {
   const audio = new Audio();
-  audio.src = "./audio/" + key + ".mp3";
+  audio.src = "./" + key + ".mp3";
   audio.play();
 };
 
